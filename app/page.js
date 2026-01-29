@@ -1,65 +1,111 @@
-import Image from "next/image";
-
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    return (
+        <div className="wrapper">
+            {/* Hintergrund-Animation */}
+            <ul className="bubbles">
+                <li style={{ left: "10%", width: 80, height: 80, animationDelay: "0s" }} />
+                <li style={{ left: "25%", width: 40, height: 40, animationDelay: "2s" }} />
+                <li style={{ left: "70%", width: 110, height: 110, animationDelay: "4s" }} />
+                <li style={{ left: "85%", width: 60, height: 60, animationDelay: "1s" }} />
+            </ul>
+
+            <Header />
+
+            <main>
+                <Section title="Wer bin ich?" color="var(--red)" text="Ich bin ein leidenschaftlicher Entwickler mit einem Auge für Details und moderne Web-Technologien." />
+
+                <Section title="Sprachkenntnisse" color="var(--highlight)">
+                    <SkillBars />
+                </Section>
+
+                <Projects />
+
+                <Section title="Kontakt" color="var(--purple)" id="kontakt">
+                    <p>Lass uns zusammen etwas Großartiges erschaffen!</p>
+                    <a href="mailto:deine@email.de" className="btn-contact">Schreib mir eine Mail</a>
+                </Section>
+            </main>
+
+            <footer>
+                <p>© {new Date().getFullYear()} — Dein Name</p>
+            </footer>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+    );
+}
+
+/* --- Komponenten --- */
+
+function Header() {
+    return (
+        <header>
+            <div className="profile-blob" />
+            <h1>Dein Name</h1>
+            <p className="subtitle">Entwickler & Gestalter</p>
+        </header>
+    );
+}
+
+function Section({ title, text, color, children, id }) {
+    return (
+        <section id={id} style={{ "--accent": color }}>
+            <h2>{title}</h2>
+            {text && <p>{text}</p>}
+            {children}
+        </section>
+    );
+}
+
+function SkillBars() {
+    const skills = [
+        { name: "SQL", level: 85, color: "var(--purple)" },
+        { name: "HTML/CSS", level: 75, color: "var(--red)" },
+        { name: "JavaScript", level: 75, color: "var(--highlight)" },
+        { name: "React", level: 75, color: "var(--emerald)" },
+        { name: "Python", level: 60, color: "var(--orange)" },
+    ];
+
+    return (
+        <div className="skills-container">
+            {skills.map((skill, i) => (
+                <div key={i} className="skill-item">
+                    <div className="skill-info">
+                        <span>{skill.name}</span>
+                        <span className="skill-num">{skill.level}%</span>
+                    </div>
+                    <div className="progress-track">
+                        <div
+                            className="progress-bar"
+                            style={{
+                                width: `${skill.level}%`,
+                                backgroundColor: skill.color,
+                                boxShadow: `0 0 15px ${skill.color}`
+                            }}
+                        />
+                    </div>
+                </div>
+            ))}
         </div>
-      </main>
-    </div>
-  );
+    );
+}
+
+function Projects() {
+    const projects = [
+        { title: "Portfolio V2", desc: "Next.js Glassmorphism Design", tag: "Web" },
+        { title: "Automation Bot", desc: "Workflows mit Python", tag: "Scripts" }
+    ];
+
+    return (
+        <section style={{ "--accent": "var(--yellow)" }}>
+            <h2>Projekte</h2>
+            <div className="project-grid">
+                {projects.map((p, i) => (
+                    <div className="project-card" key={i}>
+                        <span className="card-tag">{p.tag}</span>
+                        <h3>{p.title}</h3>
+                        <p>{p.desc}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
 }
