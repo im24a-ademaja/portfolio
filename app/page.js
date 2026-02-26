@@ -39,7 +39,7 @@ function Header() {
     return (
         <header>
             <div className="profile-blob" />
-            <h1>Dein Name</h1>
+            <h1>Arbi Ademaj</h1>
             <p className="subtitle">Entwickler & Gestalter</p>
         </header>
     );
