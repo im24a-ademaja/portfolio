@@ -90,8 +90,8 @@ function SkillBars() {
 
 function Projects() {
     const projects = [
-        { title: "Portfolio V2", desc: "Next.js Glassmorphism Design", tag: "Web" },
-        { title: "Automation Bot", desc: "Workflows mit Python", tag: "Scripts" }
+        { title: "DOCX → PDF-Converter", desc: "Einfacher Converter gebaut mit LibreOffice.", tag: "Web" },
+        { title: "Münzen-Ratspiel", desc: "Minispiel, indem man raten muss, ob eine Münze echt oder gefälscht ist.", tag: "Web" }
     ];
 
     return (
