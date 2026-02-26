@@ -27,7 +27,7 @@ export default function Home() {
             </main>
 
             <footer>
-                <p>© {new Date().getFullYear()} — Dein Name</p>
+                <p>© {new Date().getFullYear()} — Arbi Ademaj</p>
             </footer>
         </div>
     );
