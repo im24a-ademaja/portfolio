@@ -12,7 +12,11 @@ export default function Home() {
             <Header />
 
             <main>
-                <Section title="Wer bin ich?" color="var(--red)" text="Ich bin ein leidenschaftlicher Entwickler mit einem Auge für Details und moderne Web-Technologien." />
+                <Section title="Wer bin ich?" color="var(--red)" text="Ich bin ein leidenschaftlicher Entwickler
+                 mit Fokus auf moderne Web-Technologien.
+                  Mit Erfahrung in React, Node.js und mehr erstelle ich benutzerfreundliche Anwendungen.
+                   Lassen Sie uns gemeinsam Projekte umsetzen!"
+                />
 
                 <Section title="Sprachkenntnisse" color="var(--highlight)">
                     <SkillBars />
