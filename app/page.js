@@ -70,8 +70,8 @@ export default function Home() {
                     id="kontakt"
                     ref={(el) => (sectionRefs.current[3] = el)}
                 >
-                    <p>Lass uns zusammen etwas Großartiges erschaffen!</p>
-                    <a href="mailto:deine@email.de" className="btn-contact">Schreib mir eine Mail</a>
+                    <p>Lass uns zusammen etwas Grossartiges erschaffen!</p>
+                    <a href="mailto:arbi.ademaj1@icloud.com" className="btn-contact">Schreib mir eine Mail</a>
                 </Section>
             </main>
 
