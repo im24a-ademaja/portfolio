@@ -43,6 +43,15 @@ export default function Home() {
 
             <Header />
 
+            <div className="header-buttons">
+                <a href="https://github.com/im24a-ademaja" target="_blank" className="btn-github">
+                    GitHub
+                </a>
+                <a href="mailto:arbi.ademaj1@icloud.com" className="btn-mail">
+                    E-Mail
+                </a>
+            </div>
+
             <main>
                 <Section 
                     title="Wer bin ich?" 
