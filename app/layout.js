@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-    title: "Portfolio | Entwickler & Gestalter",
+    title: "Portfolio | Arbi Ademaj",
     description: "Modernes Portfolio mit Next.js und Glassmorphismus",
 };
 

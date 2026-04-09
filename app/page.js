@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, forwardRef } from 'react';
+import Image from 'next/image';
+import Projects from './components/Projects';
 
 export default function Home() {
     const sectionRefs = useRef([]);
@@ -117,89 +119,33 @@ Section.displayName = 'Section';
 
 function SkillBars() {
     const skills = [
-        { name: "SQL", level: 85, color: "var(--purple)" },
-        { name: "HTML/CSS", level: 75, color: "var(--red)" },
-        { name: "JavaScript", level: 75, color: "var(--highlight)" },
-        { name: "React", level: 75, color: "var(--emerald)" },
-        { name: "Python", level: 60, color: "var(--orange)" },
+        { name: "SQL", level: 80, color: "var(--purple)", url: "https://cdn-icons-png.flaticon.com/512/4248/4248443.png" },
+        { name: "HTML/CSS", level: 75, color: "var(--red)", url: "https://cdn-icons-png.flaticon.com/512/732/732212.png" },
+        { name: "JavaScript", level: 65, color: "var(--highlight)", url: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" },
+        { name: "React", level: 60, color: "var(--emerald)", url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" },
+        { name: "Python", level: 60, color: "var(--orange)", url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" },
     ];
+
+    const getSkillDescription = (level) => {
+        if (level <= 60) return "Grundkenntnisse";
+        if (level <= 75) return "Fortgeschrittene Kenntnisse";
+        return "Expertenkenntnisse";
+    };
 
     return (
         <div className="skills-container">
             {skills.map((skill, i) => (
                 <div key={i} className="skill-item">
-                    <div className="skill-info">
-                        <span>{skill.name}</span>
-                        <span className="skill-num">{skill.level}%</span>
-                    </div>
-                    <div className="progress-track">
-                        <div
-                            className="progress-bar"
-                            style={{
-                                width: `${skill.level}%`,
-                                backgroundColor: skill.color,
-                                boxShadow: `0 0 15px ${skill.color}`
-                            }}
-                        />
-                    </div>
+                    <Image 
+                        src={skill.url}
+                        alt={skill.name}
+                        width={50}
+                        height={50}
+                        className="skill-logo"
+                    />
+                    <span className="skill-description">{getSkillDescription(skill.level)}</span>
                 </div>
             ))}
         </div>
     );
 }
-
-const Projects = forwardRef((props, ref) => {
-    const projects = [
-        { title: "DOCX → PDF-Converter", desc: "Einfacher Converter gebaut mit LibreOffice.", tag: "Web" },
-        { title: "Münzen-Ratspiel", desc: "Minispiel, indem man raten muss, ob eine Münze echt oder gefälscht ist.", tag: "Web" }
-    ];
-
-    const cardRefs = useRef([]);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    } else {
-                        entry.target.classList.remove('visible');
-                    }
-                });
-            },
-            { threshold: 1.0 }
-        );
-
-        const currentRefs = cardRefs.current;
-        currentRefs.forEach((ref) => {
-            if (ref) observer.observe(ref);
-        });
-
-        return () => {
-            currentRefs.forEach((ref) => {
-                if (ref) observer.unobserve(ref);
-            });
-        };
-    }, []);
-
-    return (
-        <section style={{ "--accent": "var(--yellow)" }} ref={ref}>
-            <h2>Projekte</h2>
-            <div className="project-grid">
-                {projects.map((p, i) => (
-                    <div 
-                        className="project-card" 
-                        key={i}
-                        ref={(el) => (cardRefs.current[i] = el)}
-                    >
-                        <span className="card-tag">{p.tag}</span>
-                        <h3>{p.title}</h3>
-                        <p>{p.desc}</p>
-                    </div>
-                ))}
-            </div>
-        </section>
-    );
-});
-
-Projects.displayName = 'Projects';
