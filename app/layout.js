@@ -3,6 +3,9 @@ import "./globals.css";
 export const metadata = {
     title: "Portfolio | Arbi Ademaj",
     description: "Modernes Portfolio mit Next.js und Glassmorphismus",
+    icons: {
+        icon: "/favicon.jpg",
+    },
 };
 
 export default function RootLayout({ children }) {
