@@ -124,6 +124,7 @@ function SkillBars() {
         { name: "JavaScript", level: 65, color: "var(--highlight)", url: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" },
         { name: "React", level: 60, color: "var(--emerald)", url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" },
         { name: "Python", level: 60, color: "var(--orange)", url: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" },
+        { name: "Java", level: 75, color: "var(--red)", url: "https://cdn-icons-png.flaticon.com/512/226/226777.png" },
     ];
 
     const getSkillDescription = (level) => {
