@@ -4,10 +4,10 @@ import Image from 'next/image';
 export default function Projects() {
     const projects = [
         {
-            title: "Münzen-Quiz",
-            description: "Als Projekt mit Zusammenhang zur Wirtschaft hatten mein Teamkollege und ich die Idee, ein Segment einzubauen, in dem man raten muss, ob eine angezeigte Münze echt oder gefälscht ist. Das Ganze habe ich mithilfe von JS/JSON umsetzen können. Dabei war es uns wichtig, das Thema auf eine spielerische Art zu vermitteln und gleichzeitig das Interesse an wirtschaftlichen Zusammenhängen zu fördern.",
+            title: "Java Snake Game",
+            description: "In einem neuen Modul der Programmiersprache Java gewidmet, machte ich mir das Ziel, in einem Einzelprojekt meine eigene Version des klassischen Snake-Spiels zu entwickeln. Das Spiel wurde mithilfe von SpringBoot umgesetzt und bietet eine einfache, aber unterhaltsame Spielerfahrung. Es enthält eine globale Rangliste, die es den Spielern ermöglichen, ihre Punktzahlen mit anderen zu vergleichen und sich in der Rangliste zu messen. Das Projekt ist auf GitHub verfügbar und kann unter dem Link eingesehen werden.",
             image: '/globe.svg',
-            link: 'https://im24a-burtonp.github.io/PrWR-Projekt/quiz.html',
+            link: 'https://github.com/im24a-ademaja/Snake',
         },
         {
             title: "PDF-Converter",
